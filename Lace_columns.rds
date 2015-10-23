@@ -19,7 +19,7 @@ CCS_CODE_COLUMN <- c("odiag1","odiag2", "odiag3",
                     	"odiag22","odiag23","odiag24")
 
 read_oshpd_data <- function(filename, admit_date, discharge_date) {
-  data_frame <- read.csv(filename, header=T, na.strings="")
+  data_frame <- readRDS(filename, header=T, na.strings="")
   data_frame[,admit_date] <- as.Date(data_frame[, c(admit_date)], "%m/%d/%Y")
   data_frame[,discharge_date] <- as.Date(data_frame[, c(discharge_date)], "%m/%d/%Y")
   row_order <- order(data_frame$rln, data_frame[,admit_date])
@@ -142,7 +142,8 @@ create_data_frame_for_lace_script <- function (data_frame){
   lace_data_frame$hivaids <- data_frame$hivaids
   return(lace_data_frame)
 }
-thirtyday_data <- read_oshpd_data("testdata.seqLength12.converted_bothCCSICD9.csv", "admtdate", "dschdate")
+
+thirtyday_data <- read_oshpd_data("testdata.seqLength12_version3.rds", "admtdate", "dschdate")
 morbid_name_data <- find_and_make_chf(thirtyday_data, "ccs_code_comorbid.csv", "temp.csv")
 lace_script_data = create_data_frame_for_lace_script(morbid_name_data)
 saveRDS(lace_script_data, file="lace_data.rds")
