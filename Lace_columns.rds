@@ -1,22 +1,22 @@
 # Columns required to find LACE risc score
 
-columns_to_include <- c("rln","DXCCS_P","DXCCS_2",
-                    	"DXCCS_3", "DXCCS_4",
-                    	"DXCCS_5","DXCCS_6","DXCCS_7",
-                    	"DXCCS_8","DXCCS_9","DXCCS_10",
-                    	"DXCCS_11","DXCCS_12","DXCCS_13","DXCCS_14","DXCCS_15",
-                    	"DXCCS_16","DXCCS_17","DXCCS_18",
-                    	"DXCCS_19","DXCCS_20","DXCCS_21"
-                    	,"DXCCS_22","DXCCS_23","DXCCS_24","DXCCS_25","los",
+columns_to_include <- c("rln","diag_p","odiag1",
+                    	"odiag2", "odiag3",
+                    	"odiag4","odiag5","odiag6","odiag7",
+                    	"odiag8","odiag9","odiag10",
+                    	"odiag11","odiag12","odiag13","odiag14","odiag15",
+                    	"odiag16","odiag17","odiag18",
+                    	"odiag19","odiag20","odiag21"
+                    	,"odiag22","odiag23","odiag24","los",
                     	"srcroute", "admtdate",
                     	"dschdate", "next_admit_date","thirtyday" )
-CCS_CODE_COLUMN <- c("DXCCS_2","DXCCS_3", "DXCCS_4",
-                 	"DXCCS_5","DXCCS_6","DXCCS_7",
-                 	"DXCCS_8","DXCCS_9","DXCCS_10",
-                 	"DXCCS_11","DXCCS_12","DXCCS_13","DXCCS_14","DXCCS_15",
-                 	"DXCCS_16","DXCCS_17","DXCCS_18",
-                 	"DXCCS_19","DXCCS_20","DXCCS_21"
-                 	,"DXCCS_22","DXCCS_23","DXCCS_24","DXCCS_25")
+CCS_CODE_COLUMN <- c("odiag1","odiag2", "odiag3",
+                    	"odiag4","odiag5","odiag6","odiag7",
+                    	"odiag8","odiag9","odiag10",
+                    	"odiag11","odiag12","odiag13","odiag14","odiag15",
+                    	"odiag16","odiag17","odiag18",
+                    	"odiag19","odiag20","odiag21",
+                    	"odiag22","odiag23","odiag24")
 
 read_oshpd_data <- function(filename, admit_date, discharge_date) {
   data_frame <- read.csv(filename, header=T, na.strings="")
