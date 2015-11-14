@@ -2,7 +2,7 @@
 # It takes majority of gender in the patient's records and update the records.
 # For example: For a patient, if records have gender as 'M M F F F', it changes all the gender to 'F'. 
 # However, if gender attribute has values 'U U U U M' for a patient, it will change all to 'M.
-
+args<-commandArgs(trailingOnly = TRUE)
 inputFilename <- args[1]
 outFilename <- args[2]
 readRDS(inputFilename) -> ordered_mydata_sex
